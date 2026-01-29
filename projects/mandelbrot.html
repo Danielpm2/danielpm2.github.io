@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mandelbrot Visualizer | Daniel P.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-page="projects" data-base="../">
+  <div data-include="header"></div>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-subtitle">Project</span>
+          <h2>Mandelbrot Visualizer</h2>
+          <p>A real-time fractal explorer built to understand GPU pipelines and numerical stability.</p>
+        </div>
+        <article class="project-hero fade-in">
+          <div>
+            <div class="project-meta">
+              <span class="badge">C++</span>
+              <span class="badge">OpenGL</span>
+              <span class="badge">GLSL</span>
+            </div>
+            <p>
+              The visualizer supports deep zoom, palette editing, and smooth navigation with a focus on keeping
+              frames stable even at high magnification levels.
+            </p>
+            <p>
+              I implemented a custom shader pipeline, dynamic color maps, and a profiling overlay to tune GPU
+              workloads.
+            </p>
+            <a class="button button-primary" href="https://github.com/danielpm2/mandelbrot-visualizer" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+          <div class="project-gallery">
+            <img src="../assets/images/mandelbrot.svg" alt="Mandelbrot fractal placeholder" />
+            <img src="../assets/images/mandelbrot.svg" alt="Fractal zoom placeholder" />
+          </div>
+        </article>
+        <section class="section" style="padding-bottom: 0;">
+          <div class="grid grid-2">
+            <article class="card fade-in">
+              <h3 class="card-title">Technical challenges</h3>
+              <p>
+                Achieving stable zoom at extreme magnifications while preventing floating-point drift. I learned
+                how to keep precision consistent between CPU calculations and fragment shaders.
+              </p>
+            </article>
+            <article class="card fade-in">
+              <h3 class="card-title">What I learned</h3>
+              <p>
+                Building GPU workflows from scratch and profiling each stage taught me how to reason about
+                bottlenecks and memory bandwidth in graphics programming.
+              </p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

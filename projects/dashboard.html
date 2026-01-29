@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>City Data Dashboard | Daniel P.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-page="projects" data-base="../">
+  <div data-include="header"></div>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-subtitle">Project</span>
+          <h2>City Data Dashboard</h2>
+          <p>Interactive dashboard that translates public APIs into actionable local insights.</p>
+        </div>
+        <article class="project-hero fade-in">
+          <div>
+            <div class="project-meta">
+              <span class="badge">JavaScript</span>
+              <span class="badge">REST APIs</span>
+              <span class="badge">Data Viz</span>
+            </div>
+            <p>
+              This dashboard combines environmental, transit, and event data into a single responsive view. The
+              goal is to make civic data feel immediate and easy to scan.
+            </p>
+            <p>
+              I designed a modular data-fetching layer with caching to keep API calls predictable and to enable
+              fast client-side filtering.
+            </p>
+            <a class="button button-primary" href="https://github.com/danielpm2/city-dashboard" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+          <div class="project-gallery">
+            <img src="../assets/images/dashboard.svg" alt="Dashboard layout placeholder" />
+            <img src="../assets/images/dashboard.svg" alt="API visualization placeholder" />
+          </div>
+        </article>
+        <section class="section" style="padding-bottom: 0;">
+          <div class="grid grid-2">
+            <article class="card fade-in">
+              <h3 class="card-title">Technical challenges</h3>
+              <p>
+                Managing inconsistent API schemas and rate limits. I built a normalization step and added
+                fallbacks so the UI remains useful even when data is incomplete.
+              </p>
+            </article>
+            <article class="card fade-in">
+              <h3 class="card-title">What I learned</h3>
+              <p>
+                Strong data stories rely on responsible visual hierarchy. I practiced distilling complex datasets
+                into small, focused visual cards.
+              </p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

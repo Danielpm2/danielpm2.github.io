@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Daniel P.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="contact" data-base="">
+  <div data-include="header"></div>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-subtitle">Contact</span>
+          <h2>Let’s connect</h2>
+          <p>Open to collaborations, internships, and thoughtful feedback.</p>
+        </div>
+        <div class="contact-card fade-in">
+          <div>
+            <h3>Reach out</h3>
+            <ul class="contact-list">
+              <li><a href="mailto:daniel.salinas-escoto.1@ens.etsmtl.ca">daniel.salinas-escoto.1@ens.etsmtl.ca</a></li>
+              <li><a href="https://github.com/danielpm2" target="_blank" rel="noopener">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/daniel-salinas-escoto-67708b251/" target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+          </div>
+          <div class="form-placeholder">
+            <h4>Send a message</h4>
+            <form id="contact-form" data-email="daniel.salinas-escoto.1@ens.etsmtl.ca">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+              <label>
+                Message
+                <textarea name="message" rows="4" placeholder="Say hello" required></textarea>
+              </label>
+              <button class="button button-secondary" type="submit">Send message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

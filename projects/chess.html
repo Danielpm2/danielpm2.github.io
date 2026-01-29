@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Chess Studio | Daniel P.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-page="projects" data-base="../">
+  <div data-include="header"></div>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-subtitle">Project</span>
+          <h2>Online Chess Studio</h2>
+          <p>A real-time chess platform focused on smooth gameplay, analysis tools, and clean UI.</p>
+        </div>
+        <article class="project-hero fade-in">
+          <div>
+            <div class="project-meta">
+              <span class="badge">TypeScript</span>
+              <span class="badge">Node.js</span>
+              <span class="badge">WebSockets</span>
+            </div>
+            <p>
+              This project explores real-time multiplayer infrastructure with a focus on latency and reliability.
+              The client side prioritizes readable board states, quick move confirmation, and game review.
+            </p>
+            <p>
+              I built the matchmaking service, state sync, and a minimal analysis board to revisit key positions.
+            </p>
+            <a class="button button-primary" href="https://github.com/danielpm2/online-chess" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+          <div class="project-gallery">
+            <img src="../assets/images/chess.svg" alt="Chess board interface placeholder" />
+            <img src="../assets/images/chess.svg" alt="Chess analysis placeholder" />
+          </div>
+        </article>
+        <section class="section" style="padding-bottom: 0;">
+          <div class="grid grid-2">
+            <article class="card fade-in">
+              <h3 class="card-title">Technical challenges</h3>
+              <p>
+                Implementing reliable game state sync and reconnection logic while keeping payloads small. The
+                experience taught me how important deterministic state and server authority are for real-time apps.
+              </p>
+            </article>
+            <article class="card fade-in">
+              <h3 class="card-title">What I learned</h3>
+              <p>
+                Designing a protocol that balances speed and clarity, and building UI states that handle errors
+                gracefully without interrupting gameplay.
+              </p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

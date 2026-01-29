@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experimental Systems Lab | Daniel P.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-page="projects" data-base="../">
+  <div data-include="header"></div>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-subtitle">Project</span>
+          <h2>Experimental Systems Lab</h2>
+          <p>Ongoing experiments in low-level tooling, memory systems, and realtime rendering.</p>
+        </div>
+        <article class="project-hero fade-in">
+          <div>
+            <div class="project-meta">
+              <span class="badge">C</span>
+              <span class="badge">Rust</span>
+              <span class="badge">Linux</span>
+            </div>
+            <p>
+              A sandbox repository for testing systems ideas: a custom allocator, a CPU ray caster, and small
+              profiling tools built to understand performance trade-offs.
+            </p>
+            <p>
+              Each experiment is scoped to a single concept so I can learn quickly and document what matters.
+            </p>
+            <a class="button button-primary" href="https://github.com/danielpm2/experimental-systems" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+          <div class="project-gallery">
+            <img src="../assets/images/systems.svg" alt="Systems experiment placeholder" />
+            <img src="../assets/images/systems.svg" alt="Performance charts placeholder" />
+          </div>
+        </article>
+        <section class="section" style="padding-bottom: 0;">
+          <div class="grid grid-2">
+            <article class="card fade-in">
+              <h3 class="card-title">Technical challenges</h3>
+              <p>
+                Balancing safety and performance across different languages while keeping the experiments easy to
+                reset and iterate. I focused on clear benchmarks and reproducible builds.
+              </p>
+            </article>
+            <article class="card fade-in">
+              <h3 class="card-title">What I learned</h3>
+              <p>
+                Small, repeatable experiments make it easier to reason about trade-offs. I also learned how to
+                document findings so others can follow the same path.
+              </p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

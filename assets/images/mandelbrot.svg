@@ -1,0 +1,9 @@
+<svg width="640" height="420" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mandelbrot project placeholder">
+  <rect width="640" height="420" fill="#f3f4ff" />
+  <rect x="40" y="40" width="560" height="340" rx="20" fill="#ffffff" stroke="#dcdcff" />
+  <text x="80" y="120" font-family="Inter, sans-serif" font-size="26" fill="#1a1a1a">Mandelbrot Visualizer</text>
+  <text x="80" y="160" font-family="Inter, sans-serif" font-size="16" fill="#5a5a5a">GPU shading · Precision zoom · Palettes</text>
+  <circle cx="210" cy="270" r="70" fill="#e7e9ff" />
+  <circle cx="320" cy="270" r="70" fill="#dfe3ff" />
+  <circle cx="430" cy="270" r="70" fill="#e7e9ff" />
+</svg>
