@@ -1,0 +1,189 @@
+/* ============================================================
+   windows.css – Aero glass window chrome
+   ============================================================ */
+
+.os-window {
+  position: absolute;
+  min-width: 320px;
+  min-height: 200px;
+  border-radius: var(--radius);
+  background: rgba(20, 40, 80, 0.55);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--aero-border);
+  box-shadow: var(--shadow-window);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 0.15s, opacity 0.2s;
+  will-change: transform;
+}
+
+/* Focused window */
+.os-window.focused {
+  box-shadow: 0 0 0 1px rgba(130,200,255,0.6), var(--shadow-window);
+}
+
+/* Minimized state – animate off to taskbar */
+.os-window.minimizing {
+  animation: win-minimize 0.22s ease-in forwards;
+}
+.os-window.restoring {
+  animation: win-restore 0.22s ease-out forwards;
+}
+.os-window.opening {
+  animation: win-open 0.2s ease-out forwards;
+}
+
+@keyframes win-minimize {
+  from { transform: scale(1) translateY(0); opacity: 1; }
+  to   { transform: scale(0.5) translateY(60px); opacity: 0; }
+}
+@keyframes win-restore {
+  from { transform: scale(0.5) translateY(60px); opacity: 0; }
+  to   { transform: scale(1) translateY(0); opacity: 1; }
+}
+@keyframes win-open {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+/* ── Title Bar ── */
+.win-titlebar {
+  height: var(--win-title-h);
+  display: flex;
+  align-items: center;
+  padding: 0 6px 0 10px;
+  cursor: move;
+  flex-shrink: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(120,190,255,0.30) 0%,
+    rgba(60,120,220,0.22) 60%,
+    rgba(30,80,180,0.10) 100%
+  );
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  gap: 6px;
+}
+
+.win-title-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.win-title-icon img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.win-title-text {
+  flex: 1;
+  font-size: 12px;
+  font-weight: 600;
+  color: #e8f4ff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Window Control Buttons ── */
+.win-controls {
+  display: flex;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.win-btn {
+  width: 22px;
+  height: 18px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s, filter 0.12s;
+  position: relative;
+  color: #fff;
+}
+
+/* Minimize */
+.win-btn-min {
+  background: linear-gradient(180deg, rgba(100,160,230,0.8) 0%, rgba(60,100,190,0.9) 100%);
+  border: 1px solid rgba(100,180,255,0.5);
+}
+.win-btn-min:hover { background: linear-gradient(180deg, #70b0ff 0%, #3a70cc 100%); }
+
+/* Maximize */
+.win-btn-max {
+  background: linear-gradient(180deg, rgba(100,160,230,0.8) 0%, rgba(60,100,190,0.9) 100%);
+  border: 1px solid rgba(100,180,255,0.5);
+}
+.win-btn-max:hover { background: linear-gradient(180deg, #70b0ff 0%, #3a70cc 100%); }
+
+/* Close */
+.win-btn-close {
+  background: linear-gradient(180deg, rgba(220,80,60,0.85) 0%, rgba(160,30,20,0.95) 100%);
+  border: 1px solid rgba(255,120,100,0.5);
+}
+.win-btn-close:hover { background: linear-gradient(180deg, #ff6060 0%, #cc2020 100%); }
+
+/* ── Window Body ── */
+.win-body {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(130,190,255,0.4) rgba(0,0,0,0.2);
+}
+
+.win-body::-webkit-scrollbar { width: 6px; }
+.win-body::-webkit-scrollbar-track { background: rgba(0,0,0,0.15); }
+.win-body::-webkit-scrollbar-thumb { background: rgba(130,190,255,0.4); border-radius: 3px; }
+
+/* Maximized */
+.os-window.maximized {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: calc(100vh - var(--taskbar-h)) !important;
+  border-radius: 0;
+}
+
+/* Resize handle */
+.win-resize {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 14px;
+  height: 14px;
+  cursor: se-resize;
+  z-index: 10;
+}
+.win-resize::after {
+  content: '';
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid rgba(180,220,255,0.5);
+  border-bottom: 2px solid rgba(180,220,255,0.5);
+}
+
+/* Invisible overlay (used during drag/resize to prevent iframe focus stealing) */
+.win-drag-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  cursor: move;
+}

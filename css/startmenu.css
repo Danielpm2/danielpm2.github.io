@@ -1,0 +1,241 @@
+/* ============================================================
+   startmenu.css – Vista-style Start menu
+   ============================================================ */
+
+/* ── Start Button / Orb ── */
+#start-btn {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  bottom: 8px;
+  flex-shrink: 0;
+  background: radial-gradient(circle at 50% 40%,
+    #80c8ff 0%,
+    #3090ee 40%,
+    #1060cc 70%,
+    #0a3a99 100%
+  );
+  box-shadow:
+    0 0 0 3px rgba(100,180,255,0.5),
+    0 0 14px rgba(60,140,255,0.7),
+    0 4px 16px rgba(0,0,0,0.6);
+  transition: box-shadow 0.15s, transform 0.1s;
+  z-index: 9100;
+  overflow: hidden;
+}
+
+#start-btn::before {
+  content: '';
+  position: absolute;
+  top: 4px; left: 50%;
+  transform: translateX(-50%);
+  width: 38px;
+  height: 16px;
+  background: rgba(255,255,255,0.35);
+  border-radius: 50%;
+  filter: blur(3px);
+}
+
+#start-btn:hover {
+  box-shadow:
+    0 0 0 4px rgba(140,210,255,0.7),
+    0 0 22px rgba(80,170,255,0.9),
+    0 4px 18px rgba(0,0,0,0.7);
+  transform: scale(1.06);
+}
+
+#start-btn:active {
+  transform: scale(0.96);
+}
+
+.start-orb-inner {
+  font-family: var(--font);
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  position: relative;
+  top: 6px;
+}
+
+/* ── Start Menu Panel ── */
+#start-menu {
+  position: fixed;
+  bottom: calc(var(--taskbar-h) + 4px);
+  left: 4px;
+  width: var(--start-w);
+  height: var(--start-h);
+  display: flex;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid rgba(160,210,255,0.45);
+  background: rgba(15,35,90,0.88);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: 0 -4px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(100,180,255,0.15);
+  z-index: 9050;
+  overflow: hidden;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+#start-menu.hidden {
+  display: none;
+}
+
+/* ── Left Panel (App list) ── */
+#start-menu-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(100,160,255,0.2);
+  overflow: hidden;
+}
+
+#start-menu-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: linear-gradient(90deg, rgba(60,120,220,0.4) 0%, transparent 100%);
+  border-bottom: 1px solid rgba(100,160,255,0.2);
+}
+
+.user-avatar {
+  font-size: 28px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(80,140,255,0.3);
+  border-radius: 4px;
+  border: 1px solid rgba(120,180,255,0.4);
+  overflow: hidden;
+}
+
+.user-avatar img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e0f0ff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+}
+
+#start-menu-apps {
+  list-style: none;
+  padding: 6px 0;
+  overflow-y: auto;
+  flex: 1;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100,180,255,0.3) transparent;
+}
+
+.sm-app-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 14px;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background 0.1s;
+  color: #d8ecff;
+  font-size: 12.5px;
+}
+
+.sm-app-item:hover {
+  background: linear-gradient(90deg,
+    rgba(80,150,255,0.35) 0%,
+    rgba(60,120,220,0.20) 100%);
+}
+
+.sm-app-item .sm-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sm-app-item .sm-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* ── Right Panel ── */
+#start-menu-right {
+  width: 145px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg,
+    rgba(10,25,70,0.6) 0%,
+    rgba(20,50,120,0.50) 100%
+  );
+  padding-top: 40px;
+}
+
+#start-menu-right ul {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+
+.start-menu-right-item {
+  padding: 7px 14px;
+  font-size: 12px;
+  color: #b8d8ff;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.start-menu-right-item img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.start-menu-right-item:hover {
+  background: rgba(80,150,255,0.25);
+  color: #fff;
+}
+
+#start-menu-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 10px;
+  border-top: 1px solid rgba(100,160,255,0.2);
+}
+
+.sm-footer-btn {
+  background: linear-gradient(180deg, rgba(60,100,200,0.6) 0%, rgba(30,60,150,0.8) 100%);
+  border: 1px solid rgba(100,180,255,0.4);
+  border-radius: 4px;
+  color: #c0d8ff;
+  font-size: 16px;
+  width: 30px;
+  height: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s;
+}
+
+.sm-footer-btn:hover {
+  background: linear-gradient(180deg, rgba(220,60,60,0.7) 0%, rgba(160,30,30,0.85) 100%);
+  border-color: rgba(255,100,100,0.5);
+}

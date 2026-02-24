@@ -1,0 +1,136 @@
+/* ============================================================
+   taskbar.css – Vista Aero taskbar
+   ============================================================ */
+
+#taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--taskbar-h);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 6px;
+  z-index: 9000;
+  background: linear-gradient(
+    180deg,
+    rgba(40,80,160,0.55) 0%,
+    rgba(20,50,120,0.75) 40%,
+    rgba(15,35,90,0.90) 100%
+  );
+  backdrop-filter: saturate(200%) blur(18px);
+  -webkit-backdrop-filter: saturate(200%) blur(18px);
+  border-top: 1px solid rgba(120,180,255,0.35);
+  box-shadow: 0 -2px 18px rgba(0,0,0,0.5);
+}
+
+/* ── Taskbar Windows Area ── */
+#taskbar-windows {
+  flex: 1;
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.taskbar-win-btn {
+  height: 32px;
+  min-width: 120px;
+  max-width: 160px;
+  padding: 0 10px;
+  border: 1px solid rgba(120,180,255,0.3);
+  border-radius: 4px;
+  background: linear-gradient(
+    180deg,
+    rgba(100,160,240,0.28) 0%,
+    rgba(50,100,200,0.20) 50%,
+    rgba(30,70,160,0.32) 100%
+  );
+  color: #ddeeff;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background 0.12s, border-color 0.12s;
+  backdrop-filter: blur(4px);
+}
+
+.taskbar-win-btn:hover {
+  background: linear-gradient(180deg,
+    rgba(140,200,255,0.40) 0%,
+    rgba(80,140,230,0.35) 100%);
+  border-color: rgba(160,210,255,0.55);
+}
+
+.taskbar-win-btn.active {
+  background: linear-gradient(180deg,
+    rgba(80,160,255,0.50) 0%,
+    rgba(50,120,220,0.55) 100%);
+  border-color: rgba(140,210,255,0.8);
+  box-shadow: 0 0 8px rgba(80,160,255,0.4) inset;
+}
+
+.taskbar-win-btn.minimized-btn {
+  opacity: 0.65;
+}
+
+.taskbar-btn-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.taskbar-btn-icon img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.taskbar-btn-label { overflow: hidden; text-overflow: ellipsis; }
+
+/* ── System Tray ── */
+#taskbar-tray {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  height: 32px;
+  background: rgba(30,60,140,0.35);
+  border: 1px solid rgba(100,170,255,0.25);
+  border-radius: 4px;
+  backdrop-filter: blur(6px);
+}
+
+.tray-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  opacity: 0.85;
+  cursor: pointer;
+  filter: drop-shadow(0 0 4px rgba(100,200,255,0.4));
+  transition: opacity 0.15s, filter 0.15s;
+}
+
+.tray-icon:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0 8px rgba(120,220,255,0.8));
+}
+
+#taskbar-clock {
+  font-size: 11px;
+  font-weight: 600;
+  color: #c8e4ff;
+  text-shadow: 0 0 6px rgba(100,200,255,0.6);
+  white-space: nowrap;
+}

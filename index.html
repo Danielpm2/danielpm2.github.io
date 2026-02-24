@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web OS – Portfolio</title>
+  <link rel="stylesheet" href="css/os.css" />
+  <link rel="stylesheet" href="css/windows.css" />
+  <link rel="stylesheet" href="css/taskbar.css" />
+  <link rel="stylesheet" href="css/startmenu.css" />
+  <link rel="stylesheet" href="css/apps.css" />
+</head>
+<body>
+
+  <!-- ===== DESKTOP ===== -->
+  <div id="desktop">
+    <div id="desktop-icons"></div>
+  </div>
+
+  <!-- ===== WINDOWS CONTAINER ===== -->
+  <div id="windows-container"></div>
+
+  <!-- ===== TASKBAR ===== -->
+  <div id="taskbar">
+    <button id="start-btn" aria-label="Start">
+      <span class="start-orb-inner">Start</span>
+    </button>
+
+    <div id="taskbar-windows"></div>
+
+    <div id="taskbar-tray">
+      <img class="tray-icon" src="icons/utilities/powershell1.ico" width="18" height="18" title="PowerShell" alt="PowerShell">
+      <img class="tray-icon" src="icons/utilities/taskmgr.ico"     width="18" height="18" title="Task Manager" alt="Task Manager">
+      <span id="taskbar-clock"></span>
+    </div>
+  </div>
+
+  <!-- ===== START MENU ===== -->
+  <div id="start-menu" class="hidden">
+    <div id="start-menu-left">
+      <div id="start-menu-user">
+        <div class="user-avatar">
+          <img src="icons/windows_vista/vista_personalization.ico" width="36" height="36" alt="User">
+        </div>
+        <span class="user-name">Visitor</span>
+      </div>
+      <ul id="start-menu-apps"></ul>
+    </div>
+    <div id="start-menu-right">
+      <ul>
+        <li class="start-menu-right-item" id="sm-documents">
+          <img src="icons/windows_vista/vista_book_2.ico" width="20" height="20" alt=""> Documents
+        </li>
+        <li class="start-menu-right-item" id="sm-pictures">
+          <img src="icons/windows_vista/vista_photo_gallery.ico" width="20" height="20" alt=""> Pictures
+        </li>
+        <li class="start-menu-right-item" id="sm-computer">
+          <img src="icons/windows_vista/vista_pc_1.ico" width="20" height="20" alt=""> Computer
+        </li>
+      </ul>
+      <div id="start-menu-footer">
+        <button class="sm-footer-btn" id="sm-shutdown" title="Shut Down">⏻</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="js/utils.js"></script>
+  <script src="js/windowManager.js"></script>
+  <script src="js/apps.js"></script>
+  <script src="js/taskbar.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
