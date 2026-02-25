@@ -12,6 +12,11 @@
   position: relative;
   bottom: 8px;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
   background: radial-gradient(circle at 50% 40%,
     #80c8ff 0%,
     #3090ee 40%,
@@ -58,7 +63,17 @@
   color: rgba(255,255,255,0.9);
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   position: relative;
-  top: 6px;
+  top: 2px;
+}
+
+.start-orb-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  position: relative;
+  top: -2px;
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.5));
+  pointer-events: none;
 }
 
 /* ── Start Menu Panel ── */
@@ -70,11 +85,11 @@
   height: var(--start-h);
   display: flex;
   border-radius: 10px 10px 0 0;
-  border: 1px solid rgba(160,210,255,0.45);
-  background: rgba(15,35,90,0.88);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  box-shadow: 0 -4px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(100,180,255,0.15);
+  border: 1px solid rgba(60,70,90,0.70);
+  background: rgba(22, 24, 32, 0.97);
+  backdrop-filter: saturate(160%) blur(20px);
+  -webkit-backdrop-filter: saturate(160%) blur(20px);
+  box-shadow: 0 -4px 40px rgba(0,0,0,0.80), 0 0 0 1px rgba(80,100,140,0.18);
   z-index: 9050;
   overflow: hidden;
   transition: opacity 0.15s, transform 0.15s;
@@ -89,7 +104,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid rgba(100,160,255,0.2);
+  border-right: 1px solid rgba(60,70,90,0.55);
   overflow: hidden;
 }
 
@@ -98,8 +113,8 @@
   align-items: center;
   gap: 10px;
   padding: 12px 14px;
-  background: linear-gradient(90deg, rgba(60,120,220,0.4) 0%, transparent 100%);
-  border-bottom: 1px solid rgba(100,160,255,0.2);
+  background: linear-gradient(90deg, rgba(50,60,100,0.60) 0%, transparent 100%);
+  border-bottom: 1px solid rgba(60,70,90,0.50);
 }
 
 .user-avatar {
@@ -109,9 +124,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(80,140,255,0.3);
+  background: rgba(50,60,100,0.55);
   border-radius: 4px;
-  border: 1px solid rgba(120,180,255,0.4);
+  border: 1px solid rgba(80,100,150,0.45);
   overflow: hidden;
 }
 
@@ -124,8 +139,8 @@
 .user-name {
   font-size: 14px;
   font-weight: 700;
-  color: #e0f0ff;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+  color: #e8f0ff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
 }
 
 #start-menu-apps {
@@ -134,7 +149,7 @@
   overflow-y: auto;
   flex: 1;
   scrollbar-width: thin;
-  scrollbar-color: rgba(100,180,255,0.3) transparent;
+  scrollbar-color: rgba(80,100,150,0.4) transparent;
 }
 
 .sm-app-item {
@@ -145,14 +160,15 @@
   cursor: pointer;
   border-radius: 0;
   transition: background 0.1s;
-  color: #d8ecff;
+  color: #c8d8f0;
   font-size: 12.5px;
 }
 
 .sm-app-item:hover {
   background: linear-gradient(90deg,
-    rgba(80,150,255,0.35) 0%,
-    rgba(60,120,220,0.20) 100%);
+    rgba(70,100,180,0.50) 0%,
+    rgba(50,70,140,0.30) 100%);
+  color: #fff;
 }
 
 .sm-app-item .sm-icon {
@@ -177,8 +193,8 @@
   display: flex;
   flex-direction: column;
   background: linear-gradient(180deg,
-    rgba(10,25,70,0.6) 0%,
-    rgba(20,50,120,0.50) 100%
+    rgba(14, 16, 22, 0.80) 0%,
+    rgba(10, 12, 18, 0.90) 100%
   );
   padding-top: 40px;
 }
@@ -192,7 +208,7 @@
 .start-menu-right-item {
   padding: 7px 14px;
   font-size: 12px;
-  color: #b8d8ff;
+  color: #b0c4e0;
   cursor: pointer;
   transition: background 0.1s, color 0.1s;
   border-radius: 0;
@@ -209,7 +225,7 @@
 }
 
 .start-menu-right-item:hover {
-  background: rgba(80,150,255,0.25);
+  background: rgba(70,100,180,0.40);
   color: #fff;
 }
 
@@ -217,14 +233,14 @@
   display: flex;
   justify-content: flex-end;
   padding: 8px 10px;
-  border-top: 1px solid rgba(100,160,255,0.2);
+  border-top: 1px solid rgba(60,70,90,0.55);
 }
 
 .sm-footer-btn {
-  background: linear-gradient(180deg, rgba(60,100,200,0.6) 0%, rgba(30,60,150,0.8) 100%);
-  border: 1px solid rgba(100,180,255,0.4);
+  background: linear-gradient(180deg, rgba(50,60,90,0.70) 0%, rgba(28,34,52,0.85) 100%);
+  border: 1px solid rgba(80,100,150,0.45);
   border-radius: 4px;
-  color: #c0d8ff;
+  color: #c0d0ee;
   font-size: 16px;
   width: 30px;
   height: 26px;
@@ -236,6 +252,6 @@
 }
 
 .sm-footer-btn:hover {
-  background: linear-gradient(180deg, rgba(220,60,60,0.7) 0%, rgba(160,30,30,0.85) 100%);
-  border-color: rgba(255,100,100,0.5);
+  background: linear-gradient(180deg, rgba(200,50,50,0.70) 0%, rgba(140,25,25,0.85) 100%);
+  border-color: rgba(220,80,80,0.5);
 }

@@ -1,5 +1,6 @@
 /* ============================================================
    os.css – Base desktop, wallpaper, global resets
+   Vista green nature wallpaper theme
    ============================================================ */
 
 *, *::before, *::after {
@@ -9,23 +10,22 @@
 }
 
 :root {
-  --aero-bg:            rgba(255,255,255,0.12);
-  --aero-border:        rgba(255,255,255,0.45);
-  --aero-shadow:        rgba(0,0,0,0.55);
-  --aero-blue:          rgba(59,130,246,0.55);
-  --aero-blue-dark:     rgba(29,78,216,0.75);
-  --taskbar-h:          44px;
-  --win-title-h:        30px;
-  --start-w:            420px;
-  --start-h:            360px;
-  --radius:             8px;
-  --font:               'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --text-light:         #f0f4ff;
-  --text-dim:           #b0bcd0;
-  --accent:             #4fa3e8;
-  --accent2:            #7fd4f8;
-  --shadow-window:      0 8px 40px rgba(0,0,0,0.7), 0 2px 8px rgba(0,0,0,0.5);
-  --glass-blur:         saturate(180%) blur(14px);
+  --taskbar-h:     40px;
+  --win-title-h:   28px;
+  --start-w:       440px;
+  --start-h:       390px;
+  --radius:        6px;
+  --font:          'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --shadow-window: 0 6px 32px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.35);
+  --glass-blur:    saturate(150%) blur(18px);
+
+  /* Vista Aero glass – light blue-grey frosted */
+  --glass-bg:      rgba(225, 238, 250, 0.68);
+  --glass-border:  rgba(255,255,255,0.88);
+  --titlebar-top:  rgba(195,222,248,0.92);
+  --titlebar-mid:  rgba(165,205,240,0.80);
+  --titlebar-bot:  rgba(140,185,230,0.65);
+  --title-text:    #18283a;
 }
 
 html, body {
@@ -34,51 +34,83 @@ html, body {
   overflow: hidden;
   font-family: var(--font);
   font-size: 13px;
-  color: var(--text-light);
+  color: #111;
   user-select: none;
 }
 
-/* ── Wallpaper ── */
+/* ─────────────────────────────────────────────
+   WALLPAPER  –  Vista "Bliss"-style green nature
+   ───────────────────────────────────────────── */
 #desktop {
   position: fixed;
   inset: 0;
   bottom: var(--taskbar-h);
-  background:
-    radial-gradient(ellipse at 30% 60%, rgba(0,80,180,0.55) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 30%, rgba(0,160,240,0.35) 0%, transparent 55%),
-    linear-gradient(160deg, #0a1a3a 0%, #0e2d5e 35%, #1a5a8a 65%, #0d3060 100%);
-  background-size: cover;
   overflow: hidden;
+  background:
+    radial-gradient(ellipse at 75% 4%,  rgba(255,250,200,0.60) 0%, transparent 38%),
+    radial-gradient(ellipse at 4%  92%, rgba(8, 40, 8, 0.55)   0%, transparent 40%),
+    radial-gradient(ellipse at 50% 68%, rgba(55,125,35,0.45)   0%, transparent 52%),
+    linear-gradient(180deg,
+      #9ecfee 0%,
+      #b8dcf5 7%,
+      #78b344 17%,
+      #5d9e2c 26%,
+      #4a8522 38%,
+      #3b6e1c 50%,
+      #2c5515 63%,
+      #1e3c0e 78%,
+      #122808 100%
+    );
 }
 
-/* Vista aurora shimmer */
+/* Leaf/foliage shimmer layer */
 #desktop::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 50% 110%, rgba(100,200,255,0.18) 0%, transparent 60%),
-    radial-gradient(ellipse at 15% 80%, rgba(80,180,255,0.12) 0%, transparent 50%);
-  animation: aurora 12s ease-in-out infinite alternate;
+    radial-gradient(ellipse at 18% 58%, rgba(110,190,60,0.22) 0%, transparent 32%),
+    radial-gradient(ellipse at 82% 52%, rgba(90,165,42,0.18)  0%, transparent 28%),
+    radial-gradient(ellipse at 48% 82%, rgba(28, 75,14,0.30)  0%, transparent 38%),
+    radial-gradient(ellipse at 33% 38%, rgba(130,205,72,0.14) 0%, transparent 22%),
+    radial-gradient(ellipse at 68% 32%, rgba(105,185,52,0.12) 0%, transparent 18%);
+  animation: foliage 9s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
-@keyframes aurora {
-  0%   { opacity: 0.6; transform: scale(1) translateY(0); }
-  50%  { opacity: 1;   transform: scale(1.04) translateY(-12px); }
-  100% { opacity: 0.6; transform: scale(1) translateY(0); }
+/* Light-ray sheen */
+#desktop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    130deg,
+    rgba(255,255,215,0.13) 0%,
+    transparent 28%,
+    rgba(255,255,200,0.06) 58%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
-/* ── Desktop Icons Grid ── */
+@keyframes foliage {
+  0%   { opacity: 0.65; }
+  50%  { opacity: 1.00; }
+  100% { opacity: 0.65; }
+}
+
+/* ─────────────────────────────────────────────
+   DESKTOP ICONS
+   ───────────────────────────────────────────── */
 #desktop-icons {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 12px;
+  left: 12px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 10px;
-  max-height: calc(100vh - var(--taskbar-h) - 32px);
+  gap: 8px;
+  max-height: calc(100vh - var(--taskbar-h) - 24px);
   align-content: flex-start;
 }
 
@@ -86,52 +118,54 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80px;
+  width: 76px;
   cursor: pointer;
-  padding: 6px 4px;
-  border-radius: 6px;
-  transition: background 0.15s;
+  padding: 5px 4px;
+  border-radius: 4px;
+  transition: background 0.12s;
   text-align: center;
 }
 
 .desktop-icon:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.20);
 }
 
 .desktop-icon.selected,
 .desktop-icon:active {
-  background: rgba(79,163,232,0.35);
-  outline: 1px solid rgba(79,163,232,0.7);
+  background: rgba(70,120,210,0.28);
+  outline: 1px solid rgba(100,160,255,0.50);
 }
 
 .desktop-icon .icon-img {
-  font-size: 40px;
-  line-height: 1;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
-  margin-bottom: 4px;
+  margin-bottom: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 48px;
   height: 48px;
+  filter: drop-shadow(1px 2px 5px rgba(0,0,0,0.55));
 }
 
 .desktop-icon .icon-img img {
   width: 48px;
   height: 48px;
   object-fit: contain;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
 }
 
 .desktop-icon .icon-label {
   font-size: 11px;
   color: #fff;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+  text-shadow:
+    0 1px 3px rgba(0,0,0,1),
+    0 0  7px rgba(0,0,0,0.9),
+    1px 1px 0 rgba(0,0,0,1);
   line-height: 1.3;
   word-break: break-word;
 }
 
-/* Windows container (above desktop) */
+/* ─────────────────────────────────────────────
+   WINDOWS CONTAINER
+   ───────────────────────────────────────────── */
 #windows-container {
   position: fixed;
   inset: 0;

@@ -4,35 +4,34 @@
 
 /* ── Shared app layout ── */
 .app-content {
-  color: #d8eeff;
+  color: #1e2a3a;
   line-height: 1.6;
 }
 
 .app-content h1 {
   font-size: 22px;
   font-weight: 700;
-  color: #a8d8ff;
+  color: #1a3a6a;
   margin-bottom: 6px;
-  text-shadow: 0 0 14px rgba(80,180,255,0.5);
 }
 
 .app-content h2 {
   font-size: 15px;
   font-weight: 600;
-  color: #80c0ff;
+  color: #1e4a80;
   margin: 16px 0 6px;
   padding-bottom: 4px;
-  border-bottom: 1px solid rgba(100,180,255,0.25);
+  border-bottom: 1px solid rgba(80,130,200,0.25);
 }
 
 .app-content p {
   font-size: 13px;
-  color: #c0dcf4;
+  color: #2a3a50;
   margin-bottom: 10px;
 }
 
 .app-content a {
-  color: var(--accent2);
+  color: #1a5abf;
   text-decoration: none;
 }
 .app-content a:hover { text-decoration: underline; }
@@ -61,8 +60,65 @@
 .about-intro h1 { margin-bottom: 4px; }
 .about-intro .tagline {
   font-size: 13px;
-  color: var(--accent2);
+  color: #2a5a9e;
   font-style: italic;
+}
+
+/* ── Inline content icons (used inside app HTML) ── */
+.ico {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  object-fit: contain;
+  position: relative;
+  top: -1px;
+  flex-shrink: 0;
+}
+.ico-sm { width: 13px; height: 13px; }
+.ico-md { width: 20px; height: 20px; }
+.ico-lg { width: 24px; height: 24px; }
+
+/* ── Language chips (logo + name) ── */
+.lang-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.lang-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 80px;
+  padding: 10px 6px 8px;
+  background: rgba(215, 232, 252, 0.60);
+  border: 1px solid rgba(100,150,210,0.30);
+  border-radius: 8px;
+  cursor: default;
+  transition: background 0.15s, border-color 0.15s, transform 0.12s;
+}
+
+.lang-chip:hover {
+  background: rgba(190, 218, 250, 0.85);
+  border-color: rgba(80,130,210,0.55);
+  transform: translateY(-2px);
+}
+
+.lang-chip img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.lang-chip span {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1e3a60;
+  text-align: center;
+  line-height: 1.2;
 }
 
 /* ── Skills ── */
@@ -74,19 +130,23 @@
 }
 
 .skill-chip {
-  background: rgba(60,120,240,0.25);
-  border: 1px solid rgba(100,180,255,0.3);
+  background: rgba(180,210,245,0.45);
+  border: 1px solid rgba(100,150,210,0.35);
   border-radius: 20px;
   padding: 5px 12px;
   font-size: 12px;
-  color: #c0e0ff;
+  color: #1e3a60;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
   transition: background 0.15s, border-color 0.15s;
 }
 
 .skill-chip:hover {
-  background: rgba(80,160,255,0.4);
-  border-color: rgba(140,200,255,0.6);
+  background: rgba(140,185,235,0.60);
+  border-color: rgba(80,130,200,0.55);
 }
 
 /* Skill bar */
@@ -98,13 +158,13 @@
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-  color: #a8d0f0;
+  color: #2a4060;
   margin-bottom: 3px;
 }
 
 .skill-bar {
   height: 8px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(180,210,240,0.45);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -119,8 +179,8 @@
 
 /* ── Projects ── */
 .project-card {
-  background: rgba(30,60,140,0.30);
-  border: 1px solid rgba(100,180,255,0.25);
+  background: rgba(225,238,255,0.65);
+  border: 1px solid rgba(100,150,210,0.30);
   border-radius: 6px;
   padding: 12px 14px;
   margin-bottom: 10px;
@@ -128,15 +188,18 @@
 }
 
 .project-card:hover {
-  background: rgba(50,90,180,0.35);
-  border-color: rgba(130,200,255,0.5);
+  background: rgba(205,225,250,0.80);
+  border-color: rgba(80,130,210,0.50);
 }
 
 .project-title {
   font-size: 14px;
   font-weight: 700;
-  color: #90c8ff;
+  color: #1a3a6a;
   margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 
 .project-tags {
@@ -147,12 +210,43 @@
 }
 
 .project-tag {
-  background: rgba(60,130,255,0.2);
-  border: 1px solid rgba(100,180,255,0.3);
+  background: rgba(160,200,245,0.40);
+  border: 1px solid rgba(100,150,210,0.35);
   border-radius: 3px;
   padding: 2px 7px;
   font-size: 10px;
-  color: #a0d0ff;
+  color: #1e3a6a;
+}
+
+/* ── Card typography helpers ── */
+.card-meta {
+  font-size: 12px;
+  color: #3a5a80;
+  margin-bottom: 6px;
+}
+
+.card-list {
+  padding-left: 16px;
+  font-size: 12px;
+  color: #1e2a3a;
+  line-height: 1.8;
+}
+
+.card-note {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #2a4060;
+}
+
+.card-highlight {
+  font-weight: 700;
+  color: #7a4f00;
+  background: rgba(255, 210, 80, 0.25);
+  border-radius: 4px;
+  padding: 1px 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .project-links {
@@ -162,12 +256,12 @@
 }
 
 .project-link-btn {
-  background: rgba(60,120,220,0.35);
-  border: 1px solid rgba(100,180,255,0.4);
+  background: rgba(200,222,248,0.70);
+  border: 1px solid rgba(100,150,210,0.45);
   border-radius: 4px;
   padding: 3px 10px;
   font-size: 11px;
-  color: #b8e0ff;
+  color: #1a3a6a;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
@@ -175,7 +269,7 @@
 }
 
 .project-link-btn:hover {
-  background: rgba(80,160,255,0.5);
+  background: rgba(170,205,245,0.85);
   text-decoration: none;
 }
 
@@ -188,7 +282,7 @@
 
 .contact-form label {
   font-size: 11px;
-  color: #90b8e0;
+  color: #2a4060;
   margin-bottom: 2px;
   display: block;
 }
@@ -197,10 +291,10 @@
 .contact-form textarea {
   width: 100%;
   padding: 7px 10px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(100,180,255,0.3);
+  background: rgba(255,255,255,0.80);
+  border: 1px solid rgba(100,150,210,0.45);
   border-radius: 4px;
-  color: #d8f0ff;
+  color: #1a2a3a;
   font-family: var(--font);
   font-size: 12px;
   outline: none;
@@ -210,8 +304,8 @@
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: rgba(130,200,255,0.7);
-  background: rgba(255,255,255,0.12);
+  border-color: rgba(70,130,220,0.70);
+  background: rgba(255,255,255,0.95);
 }
 
 .contact-form button[type="submit"] {
@@ -244,22 +338,35 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(40,90,200,0.3);
-  border: 1px solid rgba(100,180,255,0.3);
+  background: rgba(210,228,252,0.65);
+  border: 1px solid rgba(100,150,210,0.35);
   border-radius: 6px;
   padding: 7px 14px;
-  color: #c0e0ff;
+  color: #1a3a6a;
   font-size: 12px;
   text-decoration: none;
   transition: background 0.15s;
 }
 
 .contact-link:hover {
-  background: rgba(70,140,255,0.45);
+  background: rgba(175,210,248,0.85);
   text-decoration: none;
 }
 
-.contact-link .cl-icon { font-size: 18px; }
+.contact-link .cl-icon {
+  font-size: 18px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact-link .cl-icon img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
 
 /* ── Welcome / Boot screen ── */
 .welcome-content {
@@ -273,7 +380,7 @@
 }
 
 .welcome-logo {
-  filter: drop-shadow(0 0 20px rgba(80,180,255,0.7));
+  filter: drop-shadow(0 0 16px rgba(40,100,220,0.40));
   animation: float 3s ease-in-out infinite;
 }
 
@@ -290,7 +397,7 @@
 
 .welcome-content h1 {
   font-size: 26px;
-  background: linear-gradient(90deg, #80c8ff, #c0f0ff, #80c8ff);
+  background: linear-gradient(90deg, #1a60cc, #3a9aee, #1a60cc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -298,7 +405,7 @@
 
 .welcome-content p {
   font-size: 14px;
-  color: #90b8d8;
+  color: #2a4a70;
 }
 
 /* ── File Explorer (placeholder) ── */
@@ -311,10 +418,10 @@
 }
 
 .explorer-btn {
-  background: rgba(60,120,220,0.3);
-  border: 1px solid rgba(100,180,255,0.3);
+  background: rgba(200,220,248,0.60);
+  border: 1px solid rgba(100,150,210,0.35);
   border-radius: 3px;
-  color: #c0e0ff;
+  color: #1a3a6a;
   font-size: 11px;
   padding: 3px 8px;
   cursor: pointer;
@@ -338,25 +445,25 @@
 }
 
 .explorer-item:hover {
-  background: rgba(80,150,255,0.25);
+  background: rgba(160,200,245,0.35);
 }
 
 .explorer-item .exp-icon { font-size: 32px; margin-bottom: 4px; }
-.explorer-item .exp-name { font-size: 11px; color: #c0dcf0; }
+.explorer-item .exp-name { font-size: 11px; color: #2a4060; }
 
 /* Notification toast */
 .os-toast {
   position: fixed;
   bottom: calc(var(--taskbar-h) + 10px);
   right: 14px;
-  background: rgba(20,50,130,0.88);
-  border: 1px solid rgba(100,180,255,0.4);
+  background: rgba(22, 24, 32, 0.94);
+  border: 1px solid rgba(80,100,150,0.50);
   border-radius: 8px;
   padding: 10px 16px;
   backdrop-filter: blur(14px);
   box-shadow: 0 4px 24px rgba(0,0,0,0.6);
   font-size: 12px;
-  color: #c8e8ff;
+  color: #c8d8f0;
   z-index: 99000;
   animation: toast-in 0.25s ease-out, toast-out 0.3s 2.7s ease-in forwards;
   max-width: 260px;
