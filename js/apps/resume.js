@@ -54,7 +54,7 @@ APP_REGISTRY.push({
     </div>
 
     <div style="margin-top:16px">
-      <a class="project-link-btn" href="hidden/cv_tech_en.pdf" download>Download PDF</a>
+      <a class="project-link-btn" href="cv_tech_en.pdf" download>Download PDF</a>
     </div>
   `
 });
