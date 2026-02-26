@@ -76,7 +76,7 @@ const WindowManager = (() => {
     focusWindow(id);
     Taskbar.addButton(id, config);
 
-    if (typeof config.onOpen === 'function') config.onOpen(el);
+    if (typeof config.onOpen === 'function') config.onOpen(el, config._args || null);
     return el;
   }
 

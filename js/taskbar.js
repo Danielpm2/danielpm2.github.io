@@ -30,18 +30,18 @@ const Taskbar = (() => {
       menu.classList.toggle('hidden');
     });
 
-    // Right-panel items (no-op placeholders for now)
+    // Right-panel items
     document.getElementById('sm-documents')?.addEventListener('click', () => {
       menu.classList.add('hidden');
-      showToast('📁 Documents folder is empty in this demo.');
+      launchApp('explorer', { path: ['C:\\', 'Documents'] });
     });
     document.getElementById('sm-pictures')?.addEventListener('click', () => {
       menu.classList.add('hidden');
-      showToast('🖼️ Pictures folder is empty in this demo.');
+      launchApp('explorer', { path: ['C:\\', 'Photos'] });
     });
     document.getElementById('sm-computer')?.addEventListener('click', () => {
       menu.classList.add('hidden');
-      showToast('💻 My Computer is unavailable in this demo.');
+      launchApp('explorer');
     });
     document.getElementById('sm-shutdown')?.addEventListener('click', () => {
       menu.classList.add('hidden');

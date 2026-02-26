@@ -10,10 +10,13 @@ window.addEventListener('DOMContentLoaded', () => {
   /* 2. Populate start menu */
   buildStartMenuApps();
 
-  /* 3. Start taskbar (clock + start button) */
+  /* 3. Init virtual file system (indexes APP_REGISTRY + photo manifest) */
+  FS.init();
+
+  /* 4. Start taskbar (clock + start button) */
   Taskbar.init();
 
-  /* 4. Boot animation then open Welcome window */
+  /* 5. Boot animation then open Welcome window */
   bootSequence();
 });
 
