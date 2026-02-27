@@ -516,18 +516,12 @@
 
 .welcome-logo {
   filter: drop-shadow(0 0 16px rgba(40,100,220,0.40));
-  animation: float 3s ease-in-out infinite;
 }
 
 .welcome-logo img {
   width: 80px;
   height: 80px;
   object-fit: contain;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-10px); }
 }
 
 .welcome-content h1 {
