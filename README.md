@@ -1,14 +1,15 @@
 # PortfoliOS
 
-A browser-based portfolio built to look and feel like **Windows Vista** — complete with a boot sequence, draggable windows, a taskbar, a Start menu, a virtual file system, and individual apps for each section of the portfolio.
+A browser-based portfolio built to look and feel like **Windows Vista**  complete with a boot sequence, draggable windows, a taskbar, a Start menu, a virtual file system, and individual apps for each section of the portfolio.
 
 Live at → **[danielpm2.github.io](https://danielpm2.github.io)**
+
+A bunch of features to come next but this is functionnal for now. I've made it so that adding apps is extremely easy (see below).
 
 ---
 
 ## Features
 
-- **Vista-style boot animation** — segmented progress bar sweeps on startup before landing on the desktop
 - **Windowed UI** — every app opens in a draggable, resizable, minimizable, maximizable window with Aero-style chrome
 - **Taskbar & Start Menu** — running windows appear in the taskbar; the Start menu lists all apps and quick-links to Documents, Pictures, and Computer
 - **Virtual File System** — a `C:\` tree with `Programs`, `Photos`, and `Documents` folders, navigable through File Explorer
@@ -33,7 +34,7 @@ Live at → **[danielpm2.github.io](https://danielpm2.github.io)**
 | **Fractal Explorer** | Project showcase — interactive fractal renderer |
 | **Contact** | Contact links |
 | **File Explorer** | Virtual filesystem browser |
-| **Photos** | Image viewer |
+| **Photos** | (WIP) Image viewer |
 
 ---
 
@@ -118,4 +119,4 @@ APP_REGISTRY.push({
 
 3. Add any styles to `css/apps.css`.
 
-That's it — the app will appear on the desktop and in the Start menu automatically.
+That's it, the app will appear on the desktop and in the Start menu automatically.
