@@ -176,3 +176,32 @@ html, body {
 #windows-container > * {
   pointer-events: all;
 }
+
+/* ═══════════════════════════════════════════════
+   MOBILE  (≤ 768px)
+   ═══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  :root {
+    --taskbar-h: 48px;
+  }
+
+  /* Desktop icons: horizontal scrollable row along top */
+  #desktop-icons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    max-height: none;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    gap: 6px;
+  }
+
+  .desktop-icon {
+    width: 68px;
+  }
+
+  .desktop-icon .icon-label {
+    font-size: 10px;
+  }
+}

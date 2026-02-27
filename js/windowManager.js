@@ -170,8 +170,11 @@ const WindowManager = (() => {
   }
 
   /* ── Drag ── */
+  const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
   let dragging = null;
   function onTitlebarMousedown(e) {
+    if (isMobile()) return;                          // no drag on touch screens
     if (e.target.closest('[data-action]')) return;
     const id = e.currentTarget.dataset.winId;
     const w  = windows.get(id);
@@ -225,6 +228,7 @@ const WindowManager = (() => {
   /* ── Resize ── */
   let resizing = null;
   function onResizeMousedown(e) {
+    if (isMobile()) return;                          // no resize on touch screens
     const id = e.currentTarget.dataset.winId;
     const w  = windows.get(id);
     if (!w || w.el.classList.contains('maximized')) return;
@@ -253,6 +257,13 @@ const WindowManager = (() => {
       document.querySelectorAll('.desktop-icon.selected').forEach(i => i.classList.remove('selected'));
     }
   });
+
+  /* ── Touch: close start menu on outside tap ── */
+  document.addEventListener('touchstart', e => {
+    if (!e.target.closest('#start-menu') && !e.target.closest('#start-btn')) {
+      document.getElementById('start-menu')?.classList.add('hidden');
+    }
+  }, { passive: true });
 
   /* ── Public API ── */
   return { open, close, minimize, restore, toggle, toggleMaximize, focusWindow, windows };

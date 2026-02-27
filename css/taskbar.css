@@ -130,3 +130,38 @@
   color: #c8d8ee;
   white-space: nowrap;
 }
+
+/* ═══════════════════════════════════════════════
+   MOBILE  (≤ 768px)
+   ═══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  #taskbar {
+    padding: 0 4px;
+    gap: 3px;
+  }
+
+  /* Taskbar window buttons: icon only, no label */
+  .taskbar-win-btn {
+    min-width: 36px;
+    max-width: 44px;
+    padding: 0 6px;
+  }
+
+  .taskbar-btn-label {
+    display: none;
+  }
+
+  /* Shrink tray — hide powershell/taskmgr icons, keep clock */
+  #taskbar-tray {
+    gap: 4px;
+    padding: 0 5px;
+  }
+
+  .tray-icon {
+    display: none;
+  }
+
+  #taskbar-clock {
+    font-size: 10px;
+  }
+}

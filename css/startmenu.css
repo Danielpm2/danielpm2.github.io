@@ -255,3 +255,38 @@
   background: linear-gradient(180deg, rgba(200,50,50,0.70) 0%, rgba(140,25,25,0.85) 100%);
   border-color: rgba(220,80,80,0.5);
 }
+
+/* ═══════════════════════════════════════════════
+   MOBILE  (≤ 768px)
+   ═══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  #start-menu {
+    left: 0;
+    right: 0;
+    width: 100%;
+    bottom: var(--taskbar-h);
+    border-radius: 10px 10px 0 0;
+    height: auto;
+    max-height: 75vh;
+  }
+
+  #start-menu-left {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Right panel gets a bit narrower on small screens */
+  #start-menu-right {
+    width: 120px;
+    padding-top: 20px;
+  }
+
+  .start-menu-right-item {
+    font-size: 11px;
+    padding: 8px 10px;
+  }
+
+  .sm-app-item {
+    padding: 9px 14px;
+  }
+}

@@ -34,11 +34,28 @@ function buildDesktopIcons() {
       icon.classList.add('selected');
     });
 
-    // Double click = open
+    // Double click = open (desktop)
     icon.addEventListener('dblclick', e => {
       e.stopPropagation();
       launchApp(app.id);
     });
+
+    // Single tap = open on mobile (touch devices have no dblclick)
+    let tapTimer = null;
+    icon.addEventListener('touchend', e => {
+      e.stopPropagation();
+      if (tapTimer) {
+        // Second tap within 350ms = open
+        clearTimeout(tapTimer);
+        tapTimer = null;
+        launchApp(app.id);
+      } else {
+        // First tap = select
+        document.querySelectorAll('.desktop-icon.selected').forEach(i => i.classList.remove('selected'));
+        icon.classList.add('selected');
+        tapTimer = setTimeout(() => { tapTimer = null; }, 350);
+      }
+    }, { passive: true });
 
     container.appendChild(icon);
   });

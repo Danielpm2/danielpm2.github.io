@@ -57,23 +57,21 @@ const Taskbar = (() => {
       background:#000;opacity:0;
       display:flex;align-items:center;justify-content:center;
       transition:opacity 1.2s ease;
-      flex-direction:column;gap:12px;
     `;
     overlay.innerHTML = `
-      <div style="font-size:48px;filter:drop-shadow(0 0 20px #4af)">⊙</div>
-      <div style="color:#6af;font-family:Segoe UI,sans-serif;font-size:14px;letter-spacing:2px">
-        See you next time!
-      </div>
+      <img src="images/shutdown.gif"
+           alt=""
+           style="max-width:320px;max-height:320px;object-fit:contain;pointer-events:none;">
     `;
     document.body.appendChild(overlay);
     requestAnimationFrame(() => {
       overlay.style.opacity = '1';
     });
     setTimeout(() => {
+      overlay.style.transition = 'opacity 0.8s ease';
       overlay.style.opacity = '0';
-      overlay.style.transition = 'opacity 0.8s ease 1.5s';
-      setTimeout(() => overlay.remove(), 2500);
-    }, 2000);
+      setTimeout(() => overlay.remove(), 900);
+    }, 3000);
   }
 
   /* ── Taskbar Window Buttons ── */

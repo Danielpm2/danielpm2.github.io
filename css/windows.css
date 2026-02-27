@@ -217,3 +217,43 @@
   z-index: 9999;
   cursor: move;
 }
+
+/* ═══════════════════════════════════════════════
+   MOBILE  (≤ 768px)
+   ═══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* All windows go full-screen */
+  .os-window {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: calc(100vh - var(--taskbar-h)) !important;
+    border-radius: 0;
+    min-width: unset;
+    min-height: unset;
+  }
+
+  /* Hide resize handle — no resizing on mobile */
+  .win-resize {
+    display: none;
+  }
+
+  /* Disable drag cursor on titlebar */
+  .win-titlebar {
+    cursor: default;
+  }
+
+  /* Bigger control buttons for fat fingers */
+  .win-btn {
+    width: 32px;
+    height: 28px;
+    font-size: 13px;
+  }
+
+  /* More breathing room in window body */
+  .win-body {
+    padding: 14px 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+}
