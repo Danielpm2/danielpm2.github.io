@@ -8,16 +8,26 @@ const Taskbar = (() => {
   function updateClock() {
     const el = document.getElementById('taskbar-clock');
     if (!el) return;
-    const now = new Date();
-    const h   = String(now.getHours()).padStart(2, '0');
-    const m   = String(now.getMinutes()).padStart(2, '0');
-    const d   = now.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
-    el.innerHTML = `${h}:${m}<br><span style="font-size:9px;font-weight:400;color:#8ab0d0">${d}</span>`;
+    const now  = new Date();
+    const fmt  = typeof ThemeEngine !== 'undefined' ? ThemeEngine.clockFormat() : '24';
+    let   h    = now.getHours();
+    let   suffix = '';
+    if (fmt === '12') {
+      suffix = h >= 12 ? ' PM' : ' AM';
+      h = h % 12 || 12;
+    }
+    const hStr = String(h).padStart(2, '0');
+    const m    = String(now.getMinutes()).padStart(2, '0');
+    const d    = now.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+    el.innerHTML = `${hStr}:${m}${suffix}<br><span style="font-size:9px;font-weight:400;color:#8ab0d0">${d}</span>`;
   }
 
   function initClock() {
     updateClock();
     setInterval(updateClock, 10000);
+    // Allow settings to force an immediate re-render
+    document.getElementById('taskbar-clock')
+      ?.addEventListener('refresh', updateClock);
   }
 
   /* ── Start Button ── */
@@ -42,6 +52,10 @@ const Taskbar = (() => {
     document.getElementById('sm-computer')?.addEventListener('click', () => {
       menu.classList.add('hidden');
       launchApp('explorer');
+    });
+    document.getElementById('sm-settings')?.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      launchApp('settings');
     });
     document.getElementById('sm-shutdown')?.addEventListener('click', () => {
       menu.classList.add('hidden');

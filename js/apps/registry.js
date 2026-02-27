@@ -102,7 +102,7 @@ function buildDesktopIcons() {
 function buildStartMenuApps() {
   const ul = document.getElementById('start-menu-apps');
   ul.innerHTML = '';
-  APP_REGISTRY.forEach(app => {
+  APP_REGISTRY.filter(app => app.showInStartMenu !== false).forEach(app => {
     const li = document.createElement('li');
     li.className = 'sm-app-item';
     li.innerHTML = `<span class="sm-icon">${iconHTML(app, 24)}</span><span>${app.title}</span>`;

@@ -2,6 +2,92 @@
    main.js  –  Entry point: boot sequence & initialization
    ============================================================ */
 
+/* ── Theme Engine ── */
+const ThemeEngine = (() => {
+  const KEYS = {
+    accent:      'portfolios_accent',
+    clockFormat: 'portfolios_clock_format',
+    iconSize:    'portfolios_icon_size',
+  };
+
+  const ICON_SIZES = {
+    small:  { px: '32px', label: '9px'  },
+    medium: { px: '48px', label: '11px' },
+    large:  { px: '64px', label: '12px' },
+  };
+
+  function applyAccent(hue) {
+    document.documentElement.style.setProperty('--accent-h', hue);
+    localStorage.setItem(KEYS.accent, hue);
+  }
+
+  function applyIconSize(size) {
+    const s = ICON_SIZES[size] || ICON_SIZES.medium;
+    document.documentElement.style.setProperty('--icon-size', s.px);
+    document.documentElement.style.setProperty('--icon-label-size', s.label);
+    localStorage.setItem(KEYS.iconSize, size);
+  }
+
+  function setClockFormat(fmt) {
+    localStorage.setItem(KEYS.clockFormat, fmt); // '12' or '24'
+  }
+
+  function clockFormat() {
+    return localStorage.getItem(KEYS.clockFormat) || '24';
+  }
+
+  function currentAccent() {
+    return localStorage.getItem(KEYS.accent) || '210';
+  }
+
+  function currentIconSize() {
+    return localStorage.getItem(KEYS.iconSize) || 'medium';
+  }
+
+  function init() {
+    applyAccent(currentAccent());
+    applyIconSize(currentIconSize());
+  }
+
+  return { init, applyAccent, applyIconSize, setClockFormat, clockFormat, currentAccent, currentIconSize, ICON_SIZES };
+})();
+
+/* ── Wallpaper engine ── */
+const Wallpaper = (() => {
+  const STORAGE_KEY = 'portfolios_wallpaper';
+  let wallpaperEl = null;
+
+  function init() {
+    // Create the wallpaper image layer (behind icons, above desktop gradient)
+    wallpaperEl = document.createElement('img');
+    wallpaperEl.id = 'desktop-wallpaper';
+    wallpaperEl.draggable = false;
+    document.getElementById('desktop').prepend(wallpaperEl);
+
+    // Restore saved wallpaper
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) apply(saved);
+  }
+
+  function apply(src) {
+    if (!src) {
+      wallpaperEl.src = '';
+      wallpaperEl.style.display = 'none';
+      localStorage.removeItem(STORAGE_KEY);
+    } else {
+      wallpaperEl.src = src;
+      wallpaperEl.style.display = 'block';
+      localStorage.setItem(STORAGE_KEY, src);
+    }
+  }
+
+  function current() {
+    return localStorage.getItem(STORAGE_KEY) || null;
+  }
+
+  return { init, apply, current };
+})();
+
 window.addEventListener('DOMContentLoaded', () => {
 
   /* 1. Build desktop icons from registry */
@@ -16,7 +102,13 @@ window.addEventListener('DOMContentLoaded', () => {
   /* 4. Start taskbar (clock + start button) */
   Taskbar.init();
 
-  /* 5. Boot animation then open Welcome window */
+  /* 5. Init wallpaper engine */
+  Wallpaper.init();
+
+  /* 6. Init theme engine (accent, icon size, clock format) */
+  ThemeEngine.init();
+
+  /* 7. Boot animation then open Welcome window */
   bootSequence();
 });
 

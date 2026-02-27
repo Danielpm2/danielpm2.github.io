@@ -26,6 +26,13 @@
   --titlebar-mid:  rgba(165,205,240,0.80);
   --titlebar-bot:  rgba(140,185,230,0.65);
   --title-text:    #18283a;
+
+  /* Accent colour (hue 0-360, used to tint titlebar + orb) */
+  --accent-h:      210;
+
+  /* Desktop icon size */
+  --icon-size:     48px;
+  --icon-label-size: 11px;
 }
 
 html, body {
@@ -61,6 +68,23 @@ html, body {
       #1e3c0e 78%,
       #122808 100%
     );
+}
+
+/* Wallpaper photo layer — sits above gradient, behind icons */
+#desktop-wallpaper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#desktop-icons {
+  position: relative;
+  z-index: 1;
 }
 
 /* Leaf/foliage shimmer layer */
@@ -118,7 +142,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 76px;
+  width: calc(var(--icon-size) + 28px);
   cursor: pointer;
   padding: 5px 4px;
   border-radius: 4px;
@@ -141,19 +165,19 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: var(--icon-size);
+  height: var(--icon-size);
   filter: drop-shadow(1px 2px 5px rgba(0,0,0,0.55));
 }
 
 .desktop-icon .icon-img img {
-  width: 48px;
-  height: 48px;
+  width: var(--icon-size);
+  height: var(--icon-size);
   object-fit: contain;
 }
 
 .desktop-icon .icon-label {
-  font-size: 11px;
+  font-size: var(--icon-label-size);
   color: #fff;
   text-shadow:
     0 1px 3px rgba(0,0,0,1),

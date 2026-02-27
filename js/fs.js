@@ -53,8 +53,14 @@ const FS = (() => {
      The src is relative to the web root.
   ─────────────────────────────────────────────────────── */
   const PHOTO_MANIFEST = [
-    // Example (uncomment and adjust when you add real photos):
     // { name: 'my-photo.jpg', src: 'photos/my-photo.jpg' },
+    { name: 'banking.png',    src: 'photos/banking.png'    },
+    { name: 'calendar.jpg',   src: 'photos/calendar.jpg'   },
+    { name: 'chess.jpg',      src: 'photos/chess.jpg'      },
+    { name: 'fractal.png',    src: 'photos/fractal.png'    },
+    { name: 'frutiger1.jpg',  src: 'photos/frutiger1.jpg'  },
+    { name: 'frutiger2.png',  src: 'photos/frutiger2.png'  },
+    { name: 'wallpaper1.jpg', src: 'photos/wallpaper1.jpg' },
   ];
 
   /* ── Helpers ────────────────────────────────────────────── */

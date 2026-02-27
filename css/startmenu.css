@@ -18,14 +18,14 @@
   justify-content: center;
   gap: 1px;
   background: radial-gradient(circle at 50% 40%,
-    #80c8ff 0%,
-    #3090ee 40%,
-    #1060cc 70%,
-    #0a3a99 100%
+    hsla(var(--accent-h), 90%, 80%, 1) 0%,
+    hsla(var(--accent-h), 80%, 55%, 1) 40%,
+    hsla(var(--accent-h), 75%, 38%, 1) 70%,
+    hsla(var(--accent-h), 70%, 25%, 1) 100%
   );
   box-shadow:
-    0 0 0 3px rgba(100,180,255,0.5),
-    0 0 14px rgba(60,140,255,0.7),
+    0 0 0 3px hsla(var(--accent-h), 80%, 75%, 0.5),
+    0 0 14px hsla(var(--accent-h), 80%, 60%, 0.7),
     0 4px 16px rgba(0,0,0,0.6);
   transition: box-shadow 0.15s, transform 0.1s;
   z-index: 9100;
@@ -46,8 +46,8 @@
 
 #start-btn:hover {
   box-shadow:
-    0 0 0 4px rgba(140,210,255,0.7),
-    0 0 22px rgba(80,170,255,0.9),
+    0 0 0 4px hsla(var(--accent-h), 80%, 80%, 0.7),
+    0 0 22px hsla(var(--accent-h), 80%, 65%, 0.9),
     0 4px 18px rgba(0,0,0,0.7);
   transform: scale(1.06);
 }
