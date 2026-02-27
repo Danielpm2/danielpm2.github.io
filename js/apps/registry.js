@@ -109,19 +109,25 @@ function launchApp(id, args) {
   const app = APP_REGISTRY.find(a => a.id === id);
   if (!app) return;
 
-  // Apps that accept args (explorer, photos) generate content dynamically
-  if (args && typeof app.buildContent === 'function') {
-    const instanceId = id + '_' + Date.now();
-    const instance = Object.assign({}, app, {
-      id: instanceId,
-      content: app.buildContent(args),
-      _args: args,
-      singleton: false
-    });
-    WindowManager.open(instance);
-  } else {
+  // Singleton apps: focus existing window if already open
+  if (app.singleton) {
     WindowManager.open(app);
+    return;
   }
+
+  // Non-singleton: always create a unique instance so each window can be
+  // independently closed/minimized (avoids Map key collision).
+  const instanceId = id + '_' + Date.now();
+  const content = (args && typeof app.buildContent === 'function')
+    ? app.buildContent(args)
+    : (app.content || '');
+  const instance = Object.assign({}, app, {
+    id: instanceId,
+    content,
+    _args: args || null,
+    singleton: false
+  });
+  WindowManager.open(instance);
 }
 
 /* ============================================================
