@@ -55,26 +55,9 @@ function buildDesktopIcons() {
     document.querySelectorAll('.desktop-icon.selected').forEach(i => i.classList.remove('selected'));
     bin.classList.add('selected');
   });
-  let binClickCount = 0;
-  const binMessages = [
-    'Recycle Bin is empty. Don\'t try again',
-    'Still empty. Nothing to see here.',
-    'Are you really clicking this again?',
-    'I said it\'s empty!',
-    'Ok you need to stop.',
-    'Why would you throw away my hard work like that?',
-    'STOP.',
-    'I am begging you.',
-    '...',
-    'I give up',
-    'You win. Recycle Bin is now full of regrets and bad decisions.'
-  ];
-
   bin.addEventListener('dblclick', e => {
     e.stopPropagation();
-    const msg = binMessages[Math.min(binClickCount, binMessages.length - 1)];
-    showToast(msg);
-    binClickCount++;
+    showToast('Why would you throw away my hard work like that?');
   });
   container.appendChild(bin);
 }

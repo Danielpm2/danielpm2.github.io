@@ -29,43 +29,93 @@ function bootSequence() {
     background:#000;
     display:flex;flex-direction:column;
     align-items:center;justify-content:center;
-    gap:20px;
-    transition:opacity 0.8s ease;
   `;
+
+  // segments fill the full track width
+  const NUM_SEGS = 18;
+  const bars = Array.from({ length: NUM_SEGS }, (_, i) =>
+    `<div class="boot-bar-seg" id="boot-seg-${i}"></div>`
+  ).join('');
+
   splash.innerHTML = `
-    <div style="font-size:56px;filter:drop-shadow(0 0 24px rgba(80,180,255,0.8));
-                animation:boot-spin 2s linear infinite">⊙</div>
-    <div style="color:#4a9eee;font-family:'Segoe UI',sans-serif;font-size:18px;
-                letter-spacing:4px;font-weight:300">
-      Loading...
-    </div>
-    <div style="width:220px;height:4px;background:rgba(255,255,255,0.1);
-                border-radius:2px;overflow:hidden;margin-top:8px">
-      <div id="boot-bar" style="height:100%;width:0;
-           background:linear-gradient(90deg,#3a8fee,#7fd4f8);
-           border-radius:2px;transition:width 1.2s ease;
-           box-shadow:0 0 10px rgba(80,180,255,0.7)"></div>
-    </div>
     <style>
-      @keyframes boot-spin {
-        from { transform:rotate(0deg); }
-        to   { transform:rotate(360deg); }
+      .boot-track {
+        width: 160px;
+        height: 16px;
+        border: 1px solid #3a3a3a;
+        border-radius: 3px;
+        background: #000;
+        display: flex;
+        align-items: stretch;
+        padding: 2px 3px;
+        gap: 2px;
+        margin-bottom: 28px;
+        box-shadow: inset 0 1px 4px rgba(0,0,0,0.9);
+        overflow: hidden;
+      }
+      .boot-bar-seg {
+        flex: 1;
+        border-radius: 1px;
+        background: transparent;
+        transition: background 0.05s;
+      }
+      .boot-bar-seg.lit {
+        background: linear-gradient(
+          180deg,
+          #f0ff98 0%,
+          #c0e030 20%,
+          #80b010 60%,
+          #3a5a04 100%
+        );
+      }
+      .boot-copyright {
+        position: absolute;
+        bottom: 48px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #555;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        font-size: 11px;
+        white-space: nowrap;
       }
     </style>
+    <div class="boot-track">${bars}</div>
+    <div class="boot-copyright">© Some Corporation</div>
   `;
+
   document.body.appendChild(splash);
 
-  // Animate progress bar
-  requestAnimationFrame(() => {
-    document.getElementById('boot-bar').style.width = '100%';
-  });
+  // A group of 4 consecutive segments sweeps across 18, looping
+  const NUM   = 18;
+  const WIN   = 4;
+  let   pos   = -WIN;
+  let   loops = 0;
+  const MAX   = 1;
 
-  // Fade out and open welcome window
-  setTimeout(() => {
-    splash.style.opacity = '0';
-    setTimeout(() => {
-      splash.remove();
-      launchApp('welcome');
-    }, 850);
-  }, 1600);
+  const segs = splash.querySelectorAll('.boot-bar-seg');
+
+  const interval = setInterval(() => {
+    segs.forEach((s, i) => {
+      s.classList.toggle('lit', i >= pos && i < pos + WIN);
+    });
+
+    pos++;
+    if (pos >= NUM) {
+      pos = -WIN;
+      loops++;
+    }
+
+    if (loops >= MAX) {
+      clearInterval(interval);
+      segs.forEach(s => s.classList.remove('lit'));
+      setTimeout(() => {
+        splash.style.transition = 'opacity 0.7s ease';
+        splash.style.opacity = '0';
+        setTimeout(() => {
+          splash.remove();
+          launchApp('welcome');
+        }, 720);
+      }, 200);
+    }
+  }, 80);
 }
