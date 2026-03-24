@@ -18,7 +18,7 @@ APP_REGISTRY.push({
       <a class="contact-link" href="mailto:daniel.salinas-escoto.1@ens.etsmtl.ca">
         <span class="cl-icon"><img src="icons/windows_vista/vista_messenger.ico" width="22" height="22"></span> Email
       </a>
-      <a class="contact-link" href="https://www.linkedin.com/in/daniel-salinas-escoto-67708b251/" target="_blank">
+      <a class="contact-link" href="https://https://www.linkedin.com/in/danielsalinasesc/" target="_blank">
         <span class="cl-icon"><img src="icons/windows_vista/vista_collab.ico" width="22" height="22"></span> LinkedIn
       </a>
       <a class="contact-link" href="https://github.com/Danielpm2" target="_blank">
