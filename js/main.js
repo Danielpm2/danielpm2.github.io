@@ -66,7 +66,11 @@ const Wallpaper = (() => {
 
     // Restore saved wallpaper
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) apply(saved);
+    if (saved) {
+      apply(saved);
+    } else {
+      apply('/photos/frutiger1.jpg');
+    }
   }
 
   function apply(src) {

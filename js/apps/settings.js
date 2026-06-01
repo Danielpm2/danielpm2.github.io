@@ -36,7 +36,7 @@ function buildSettingsHTML() {
   }).join('');
 
   /* ── Clock format ── */
-  const fmt = ThemeEngine.clockFormat();
+  const fmt = ThemeEngine.clockFormat();w
 
   /* ── Icon size ── */
   const curSize = ThemeEngine.currentIconSize();
