@@ -34,8 +34,8 @@ function buildDesktopIcons() {
       icon.classList.add('selected');
     });
 
-    // Double click = open (desktop)
-    icon.addEventListener('dblclick', e => {
+    // SINGLE click = open (desktop)
+    icon.addEventListener('click', e => {
       e.stopPropagation();
       launchApp(app.id);
     });

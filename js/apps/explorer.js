@@ -97,9 +97,13 @@ function explorerOnOpen(el, path) {
     });
   });
 
-  // Main grid double-click
+  // Main grid click
   el.querySelectorAll('.explorer-item').forEach(item => {
-    item.addEventListener('dblclick', () => {
+    item.addEventListener('click', e => {
+      e.stopPropagation();
+      el.querySelectorAll('.explorer-item.selected').forEach(i => i.classList.remove('selected'));
+      item.classList.add('selected');
+
       const currentPath = JSON.parse(decodeURIComponent(
         el.querySelector('.explorer-main').dataset.currentPath
       ));
@@ -112,12 +116,6 @@ function explorerOnOpen(el, path) {
       } else {
         FS.openNode(node, currentPath);
       }
-    });
-    // Single click = select
-    item.addEventListener('click', e => {
-      e.stopPropagation();
-      el.querySelectorAll('.explorer-item.selected').forEach(i => i.classList.remove('selected'));
-      item.classList.add('selected');
     });
   });
 }

@@ -1,7 +1,7 @@
 /* ============================================================
    projects.js  –  Projects launcher app
    ============================================================
-   Shows a grid of project cards. Double-clicking a card opens
+   Shows a grid of project cards. Clicking a card opens
    the corresponding project detail window (proj_chess, etc.)
    ============================================================ */
 
@@ -19,7 +19,7 @@ APP_REGISTRY.push({
 
     <h2>Academic</h2>
     <div class="proj-launcher-grid">
-      <div class="proj-launcher-card" ondblclick="launchApp('proj_chess')">
+      <div class="proj-launcher-card" onclick="launchApp('proj_chess')">
         <div class="proj-launcher-thumb">
           <img src="images/projects/chess.jpg" alt="Chess Platform">
         </div>
@@ -31,7 +31,7 @@ APP_REGISTRY.push({
           <div class="proj-launcher-meta">JavaScript · WebSockets · 2025</div>
         </div>
       </div>
-      <div class="proj-launcher-card" ondblclick="launchApp('proj_banking')">
+      <div class="proj-launcher-card" onclick="launchApp('proj_banking')">
         <div class="proj-launcher-thumb">
           <img src="images/projects/banking.png" alt="Banking App">
         </div>
@@ -47,7 +47,7 @@ APP_REGISTRY.push({
 
     <h2>Personal</h2>
     <div class="proj-launcher-grid">
-      <div class="proj-launcher-card" ondblclick="launchApp('proj_calendar')">
+      <div class="proj-launcher-card" onclick="launchApp('proj_calendar')">
         <div class="proj-launcher-thumb">
           <img src="images/projects/calendar.jpg" alt="Calendar Dashboard">
         </div>
@@ -59,7 +59,7 @@ APP_REGISTRY.push({
           <div class="proj-launcher-meta">JavaScript · Google API · 2024</div>
         </div>
       </div>
-      <div class="proj-launcher-card" ondblclick="launchApp('proj_fractal')">
+      <div class="proj-launcher-card" onclick="launchApp('proj_fractal')">
         <div class="proj-launcher-thumb">
           <img src="images/projects/fractal.png" alt="Fractal Visualizer">
         </div>
@@ -72,6 +72,6 @@ APP_REGISTRY.push({
         </div>
       </div>
     </div>
-    <p style="font-size:11px;color:#4a6a90;margin-top:12px">Double-click a card to open the project details.</p>
+    <p style="font-size:11px;color:#4a6a90;margin-top:12px">Click a card to open the project details.</p>
   `
 });

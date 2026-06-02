@@ -19,7 +19,7 @@ APP_REGISTRY.push({
     <div class="project-card">
       <div class="project-title"><img class="ico-md" src="icons/windows_vista/vista_book_1.ico"> Bachelor of Engineering in Software Engineering</div>
       <p class="card-meta">École de technologie supérieure (ÉTS), Montréal, QC · Since 2024 (Expected 2028)</p>
-      <p>Software design, algorithms, data structures.</p>
+      <p>Software design, algorithms, data structures, databases</p>
     </div>
     <div class="project-card">
       <div class="project-title"><img class="ico-md" src="icons/windows_vista/vista_book_2.ico"> DEC in Computer Science</div>
@@ -30,7 +30,7 @@ APP_REGISTRY.push({
     <h2>Work Experience</h2>
     <div class="project-card">
       <div class="project-title"><img class="ico-md" src="icons/windows_vista/vista_marketplace.ico"> Customer Service Clerk — Jean Coutu</div>
-      <p class="card-meta">Montréal, QC · 2023 – 2024</p>
+      <p class="card-meta">Montréal, QC · 2023 – 2025</p>
       <ul class="card-list">
         <li>Greeted and served customers professionally</li>
         <li>Processed cash register transactions with precision</li>
@@ -39,6 +39,19 @@ APP_REGISTRY.push({
       </ul>
       <p class="card-note">
         <strong>Skills developed:</strong> Customer communication, responsibility, time management, stress management.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-title"><img class="ico-md" src="icons/windows_vista/vista_marketplace.ico"> Office clerk — Couche-Tard</div>
+      <p class="card-meta">Terrebonne, QC · 2025 - present</p>
+      <ul class="card-list">
+        <li>Improved inventory accuracy by recording and analyzing daily sales, losses, and theft data.</li>
+        <li>Enabled more informed operational decisions through structured stock reporting.</li>
+        <li>Reduced new-hire onboarding time by training employees on company standards and providing clear guidance from day one.</li>
+      </ul>
+      <p class="card-note">
+        <strong>Skills developed:</strong> inventory tracking, data analysis, employee training, operational support.
       </p>
     </div>
 
