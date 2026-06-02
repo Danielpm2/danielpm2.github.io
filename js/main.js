@@ -176,7 +176,7 @@ function bootSequence() {
       }
     </style>
     <div class="boot-track">${bars}</div>
-    <div class="boot-copyright">© Some Corporation</div>
+    <div class="boot-copyright">©All my rights reserved.</div>
   `;
 
   document.body.appendChild(splash);

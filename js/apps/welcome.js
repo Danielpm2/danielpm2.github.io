@@ -18,6 +18,7 @@ APP_REGISTRY.push({
       <h1>My PortfoliOS</h1>
       <p>Montreal based Software Engineering Student</p>
       <p style="margin-top:6px;font-size:12px;color:#7090b0">
+        Resume in 
         More on this site to come :).<br>
       </p>
     </div>

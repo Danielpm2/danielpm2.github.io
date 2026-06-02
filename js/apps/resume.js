@@ -13,7 +13,10 @@ APP_REGISTRY.push({
   singleton: true,
   showOnDesktop: true,
   content: `
-    <h1>Résumé — Daniel Salinas</h1>
+    <h1>My Résumé — Daniel Salinas</h1>
+    <p class="card-note" style="margin-bottom:16px;">
+      This is my French résumé. Download the PDF version below for the full French-language CV.
+    </p>
 
     <h2>Education</h2>
     <div class="project-card">
@@ -67,7 +70,7 @@ APP_REGISTRY.push({
     </div>
 
     <div style="margin-top:16px">
-      <a class="project-link-btn" href="cv_tech_en.pdf" download>Download PDF</a>
+      <a class="project-link-btn" href="cv_tech_en.pdf" download>Download French résumé (PDF)</a>
     </div>
   `
 });
